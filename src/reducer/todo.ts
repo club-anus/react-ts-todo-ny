@@ -20,10 +20,10 @@ export const todoReducer = (state: Todo[] = initialState, action:TodoAction) => 
             _state.push(todo)
             return _state
         case TodoActionType.UPDATE_TODO:
-            _state[action.id].isDone = !_state[action.id].isDone
+            _state[action.index].isDone = !_state[action.index].isDone
             return _state
         case TodoActionType.DELETE_TODO:
-            _state.splice(action.id, 1)
+            _state.splice(action.index, 1)
             return _state
         default:
             return state

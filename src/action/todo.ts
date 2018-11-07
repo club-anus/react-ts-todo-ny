@@ -14,12 +14,12 @@ export type AddTodoAction = {
 
 export type UpdateTodoAction = {
     type: TodoActionType.UPDATE_TODO,
-    id: number,
+    index: number,
 }
 
 export type DeleteTodoAction = {
     type: TodoActionType.DELETE_TODO,
-    id: number,
+    index: number,
 }
 
 export type TodoAction = AddTodoAction | UpdateTodoAction | DeleteTodoAction;
@@ -32,16 +32,16 @@ export const addTodo = (text: string):AddTodoAction => {
     }
 }
 
-export const updateTodo = (id: number):UpdateTodoAction => {
+export const updateTodo = (index: number):UpdateTodoAction => {
     return {
         type: TodoActionType.UPDATE_TODO,
-        id,
+        index,
     }
 }
 
-export const deleteTodo = (id: number):DeleteTodoAction => {
+export const deleteTodo = (index: number):DeleteTodoAction => {
     return {
         type: TodoActionType.DELETE_TODO,
-        id,
+        index,
     }
 }
