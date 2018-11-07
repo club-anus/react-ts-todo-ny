@@ -6,8 +6,10 @@ export type Todo = {
     isDone: boolean,
 }
 
-export const todoReducer = (state: Todo[], action:TodoAction) => {
-    let _state:Todo[] = Object.assign({}, state)
+const initialState:Todo[] = []
+
+export const todoReducer = (state: Todo[] = initialState, action:TodoAction) => {
+    let _state = Object.assign([], state)
     switch(action.type) {
         case TodoActionType.ADD_TODO:
             const todo:Todo = {
@@ -18,10 +20,10 @@ export const todoReducer = (state: Todo[], action:TodoAction) => {
             _state.push(todo)
             return _state
         case TodoActionType.UPDATE_TODO:
-            return _state
+            return state
         case TodoActionType.DELETE_TODO:
-            return _state
+            return state
         default:
-            return _state
+            return state
     }
 }
