@@ -9,7 +9,7 @@ export type Todo = {
 const initialState:Todo[] = []
 
 export const todoReducer = (state: Todo[] = initialState, action:TodoAction) => {
-    let _state = Object.assign([], state)
+    let _state = JSON.parse(JSON.stringify(state))
     switch(action.type) {
         case TodoActionType.ADD_TODO:
             const todo:Todo = {
@@ -20,9 +20,10 @@ export const todoReducer = (state: Todo[] = initialState, action:TodoAction) => 
             _state.push(todo)
             return _state
         case TodoActionType.UPDATE_TODO:
-            return state
+            _state[action.id].isDone = !_state[action.id].isDone
+            return _state
         case TodoActionType.DELETE_TODO:
-            return state
+            return _state
         default:
             return state
     }
