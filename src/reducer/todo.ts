@@ -23,6 +23,7 @@ export const todoReducer = (state: Todo[] = initialState, action:TodoAction) => 
             _state[action.id].isDone = !_state[action.id].isDone
             return _state
         case TodoActionType.DELETE_TODO:
+            _state.splice(action.id, 1)
             return _state
         default:
             return state
