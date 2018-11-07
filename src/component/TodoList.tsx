@@ -56,10 +56,9 @@ class TodoList extends React.Component<TodoListProps, TodoListState> {
     public render() {
         const todoList = this.props.todoList;
         const todoListJSX = todoList.map((item) => {
+            const __handleOnclick = () => {this._updateTodo(item.id)}
             return (
-                item.isDone ? 
-                <s key={item.id}>{item.text}</s>:
-                <div key={item.id}>{item.text}</div> 
+                <div key={item.id} onClick={__handleOnclick}>{item.isDone ? <s>{item.text}</s>:item.text}</div>
             )
         })
         return (
