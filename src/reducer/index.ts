@@ -2,7 +2,7 @@ import {combineReducers} from 'redux'
 import {todoReducer} from './todo'
 import {Todo} from '../reducer/todo'
 
-export interface IrootState {
+export type rootState = {
     todoState: Todo[]
 }
 
