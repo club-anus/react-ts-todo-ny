@@ -3,7 +3,7 @@ import {Todo} from '../reducer/todo';
 import {connect} from 'react-redux';
 import {Dispatch} from 'redux';
 import {addTodo, updateTodo, deleteTodo} from '../action/todo';
-import {IrootState} from '../reducer/index'
+import {rootState} from '../reducer/index'
 
 type TodoListProps = {
     todoList:Todo[],
@@ -76,7 +76,7 @@ class TodoList extends React.Component<TodoListProps, TodoListState> {
     }
 }
 
-const mapStateToProps = (state:IrootState) => {
+const mapStateToProps = (state:rootState) => {
     return {
         todoList: state.todoState,
     }
